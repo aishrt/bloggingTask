@@ -61,11 +61,6 @@ function MyProfile() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const [file, setFile] = useState<any>();
-  const handleFileChange = (file: File | null, fileDataURL: string) => {
-    setFile(file);
-  };
-
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setUpdating(true);
     try {
@@ -92,9 +87,9 @@ function MyProfile() {
         <BackdropLoader open={true} />
       ) : (
         <>
-          {show == false ? (
+          {show === false ? (
             <div className="formDiv">
-              <div className="">
+              <div>
                 <div className="row">
                   <div className="col-md-7 make-center">
                     <div className="editimgDiv">
@@ -134,7 +129,7 @@ function MyProfile() {
                 <div className="row">
                   <div className="col-md-7 make-center">
                     <div className="editimgDiv">
-                      <img src={editImg} />
+                      <img src={editImg} alt="imgs" />
                     </div>
                   </div>
                   <div className="col-md-5 make-center">

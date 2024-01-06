@@ -10,23 +10,7 @@ import "./protected.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { ContentLayout } from "../../layout/ContentLayout";
 import { API_URL } from "../../config";
-import styled from "@emotion/styled";
-import { TextareaAutosize as BaseTextareaAutosize } from "@mui/base/TextareaAutosize";
-
-const Textarea = styled(BaseTextareaAutosize)(
-  ({ theme }) => `
-  width: 100%;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  padding: 8px 12px;
-  border-radius: 8px; 
-  color: grey;
-  background: #e9e8e8;
-  border: 1px solid #e9e8e8 
-`
-);
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 
 function UpdateBlog() {
   const token = storage.getToken();
@@ -156,9 +140,10 @@ function UpdateBlog() {
                       )}
                     </div>
                     <div className="mt-3">
-                      <Textarea
+                      <TextareaAutosize
                         aria-label="minimum height"
                         defaultValue={blog?.content}
+                        className="textAr"
                         minRows={3}
                         placeholder="Content"
                         {...register("content", { required: true })}
