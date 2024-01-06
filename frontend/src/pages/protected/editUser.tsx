@@ -96,7 +96,7 @@ function EditUser() {
               <div className="row">
                 <div className="col-md-7 make-center">
                   <div className="imgDiv">
-                    <img src={registermg} />
+                    <img src={registermg} alt="registerImg" />
                   </div>
                 </div>
                 <div className="col-md-5 make-center">

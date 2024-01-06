@@ -6,6 +6,14 @@
   color: #000;
   font-size: 18px;
 }
+.textAr {
+  width: 100%;
+  border: none;
+  padding: 6px!important;
+  background-color: rgb(237 237 237);
+  border-bottom: 1px solid rgb(76, 75, 75);
+  border-radius: 5px;
+}
 .TPOsbc {
   /* border: 1px solid red; */
   margin-bottom: 25px;
