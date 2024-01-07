@@ -34,7 +34,6 @@ function BlogList() {
   const token = storage.getToken();
   const [isUpdating, setUpdating] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [clickDelete, setClickDelete] = useState<boolean>(false);
   const [showText, setShowText] = useState<boolean>(false);
   const [blogList, setBlogList] = useState<[]>([]);
   const [totalPage, setTotalPage] = useState<number>(1);
@@ -133,6 +132,7 @@ function BlogList() {
       });
       setLoading(false);
       setUpdating(false);
+      setBlogDeleteId("");
       handleClose();
     } catch (error: any) {
       if (error.response) {
@@ -145,12 +145,6 @@ function BlogList() {
       setUpdating(false);
     }
   };
-
-  useEffect(() => {
-    if (clickDelete) {
-      deleteUser();
-    }
-  }, [clickDelete]);
 
   const handleMore = (id: string) => {
     setShowId(id);
@@ -193,7 +187,7 @@ function BlogList() {
                 />
               </div>
             </div>
-            {blogList.length > 0 ? (
+            {blogList?.length > 0 ? (
               <>
                 <div className="row">
                   {blogList?.map((item: any, index: number) => (
@@ -202,7 +196,15 @@ function BlogList() {
                         <div className="blogBox">
                           <p className="p1">{item?.title}</p>
                           {showText && showId === item?.id ? (
-                            <p className="p2">{item?.content}</p>
+                            <>
+                              <p className="p2">{item?.content}</p>
+                              <button
+                                className="readBtn"
+                                onClick={() => setShowText(false)}
+                              >
+                                Show Less
+                              </button>
+                            </>
                           ) : (
                             <p className="p2">
                               {trimText(item?.content)}
@@ -282,7 +284,7 @@ function BlogList() {
                 </Typography>
               </DialogContent>
               <DialogActions>
-                <Button autoFocus onClick={() => setClickDelete(true)}>
+                <Button autoFocus onClick={() => deleteUser()}>
                   Delete
                 </Button>
               </DialogActions>

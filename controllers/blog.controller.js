@@ -97,6 +97,7 @@ const getList = catchAsync(async (req, res) => {
 
     const blogList = await Blog.find(query)
       .populate("userId")
+      .sort({ createdAt: -1 })
       .skip(perPage * (page - 1))
       .limit(perPage);
 

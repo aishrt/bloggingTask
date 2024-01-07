@@ -184,7 +184,7 @@ function Header() {
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">
-                      <span onClick={handleLogout}> Logout</span>{" "}
+                      <span onClick={() => handleLogout()}> Logout</span>{" "}
                     </Typography>
                   </MenuItem>
                 </Menu>

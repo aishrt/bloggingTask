@@ -13,7 +13,7 @@ Only 9 items are render through backend on blog list page , if more then 9 blogs
 
 Steps to install and run project :
 
-1-> Clone the repository: git clone 
+1-> Clone the repository: git clone https://github.com/aishrt/bloggingTask.git
 2-> Create env file same as env.example in both server and frontend
 3-> Navigate to the project directory and install dependecy for backend: npm install --legacy-peer 
 4-> Start the server using : npm start
